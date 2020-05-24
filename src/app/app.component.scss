@@ -1,3 +1,34 @@
-:host {
-  
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #3d4457;
+}
+
+h1 {
+  text-align: center;
+  color: #05ec8c;
+}
+
+.progress-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+}
+
+.timer {
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 60px;
+  font-size: 50px;
+  color: white;
+}
+
+input[type="image"] {
+  outline: none;
+  text-align: center;
+  margin-left: 100px;
+  margin-top: 20px;
 }

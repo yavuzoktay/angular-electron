@@ -1,28 +1,46 @@
-import { Component } from '@angular/core';
-import { ElectronService } from './core/services';
-import { TranslateService } from '@ngx-translate/core';
-import { AppConfig } from '../environments/environment';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { timer, Subscription, interval } from "rxjs";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
-export class AppComponent {
-  constructor(
-    public electronService: ElectronService,
-    private translate: TranslateService
-  ) {
-    translate.setDefaultLang('en');
-    console.log('AppConfig', AppConfig);
+export class AppComponent implements OnInit, OnDestroy {
+  max = 1500;
+  counter = 1500;
+  current = 0;
+  counterDown: Subscription;
+  progressDown: Subscription;
+  isStartTimer: boolean = false;
+  isStartButton: boolean = true;
+  timerPause: boolean = false;
+  ngOnInit() {}
 
-    if (electronService.isElectron) {
-      console.log(process.env);
-      console.log('Mode electron');
-      console.log('Electron ipcRenderer', electronService.ipcRenderer);
-      console.log('NodeJS childProcess', electronService.childProcess);
-    } else {
-      console.log('Mode web');
-    }
+  start() {
+    this.isStartTimer = true;
+    this.isStartButton = false;
+    this.progressDown = interval(1000).subscribe((x) => this.current++);
+    this.counterDown = interval(1000).subscribe((y) => --this.counter);
+  }
+
+  pause() {
+    this.isStartButton = true;
+    this.counterDown.unsubscribe();
+    this.progressDown.unsubscribe();
+  }
+
+  ngOnDestroy() {}
+
+  get maxVal() {
+    return isNaN(this.max) || this.max < 0.1 ? 0.1 : this.max;
+  }
+
+  get currentVal() {
+    return isNaN(this.current) || this.current < 0 ? 0 : this.current;
+  }
+
+  get isFinished() {
+    return this.currentVal >= this.maxVal;
   }
 }
