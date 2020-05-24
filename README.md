@@ -1,5 +1,10 @@
 <h1 align="center">Welcome to Pomodora App Angular Electron</h1>
 
+<img width="1167" alt="pomodoro2" src="https://user-images.githubusercontent.com/11810774/82764971-96d3f400-9e1b-11ea-94f3-8ca78f48e61a.png">
+<img width="1172" alt="pomodoro1" src="https://user-images.githubusercontent.com/11810774/82764964-8face600-9e1b-11ea-8741-a83aaf69e054.png">
+
+
+
 ## Overflow
 
 For now, a time frame can be set.
