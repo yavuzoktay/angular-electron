@@ -36,7 +36,7 @@ npm start
 ```
 
 # Resources
-- https://www.electronjs.org/apps
+- https://www.electronjs.org/
 - https://angular.io/
 - https://github.com/maximegris/angular-electron
 - https://github.com/crisbeto/angular-svg-round-progressbar
