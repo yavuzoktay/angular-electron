@@ -37,7 +37,7 @@ npm start
 
 # Resources
 
-- https://github.com/AngularFirebase/angular-electron
+- https://github.com/maximegris/angular-electron
 - https://github.com/crisbeto/angular-svg-round-progressbar
 
 ## Author
