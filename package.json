@@ -92,8 +92,5 @@
   },
   "engines": {
     "node": ">=10.13.0"
-  },
-  "dependencies": {
-    "angular-svg-round-progressbar": "3.0.1"
   }
 }
